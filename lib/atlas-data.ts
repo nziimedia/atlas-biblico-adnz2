@@ -16,4 +16,4 @@ export const routes:AtlasRoute[]=[
 {id:"paulo-oeste",title:"Caminhos missionários até Roma",subtitle:"Antioquia → Éfeso → Filipos → Corinto → Roma",places:["antioquia-da-siria","efeso","filipos","corinto","roma"],kind:"missionary",note:"Sequência didática de cidades ligadas ao avanço missionário de Paulo; diferentes viagens e períodos históricos estão representados."}
 ];
 
-export const lesson13={number:13,title:"A Missão Continua em Nós",reference:"Atos 1:8",reading:"Atos 1",places:places.map(p=>p.slug),routes:routes.map(r=>r.id)};
+export const lesson13={number:13,title:"A Missão Continua em Nós",reference:"Mc 13.10",reading:"Mt 28.18-20; At 1.8; Ef 2.13-18",places:["jerusalem","samaria","antioquia-da-siria","efeso","corinto","roma"],routes:routes.map(r=>r.id)};
