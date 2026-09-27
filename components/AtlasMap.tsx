@@ -33,6 +33,6 @@ export default function AtlasMap({selectedIds,places=defaultPlaces,routes=defaul
   window.addEventListener("atlas:focus",focus); window.addEventListener("atlas:route",showRoute);
   mapRef.current=map;
   return()=>{window.removeEventListener("atlas:focus",focus);window.removeEventListener("atlas:route",showRoute);cancelAnimationFrame(frame);map.remove();mapRef.current=null;markersRef.current={};};
- },[selectedIds]);
+ },[selectedIds,places,routes]);
  return <div ref={ref} className="h-full w-full"/>;
 }
