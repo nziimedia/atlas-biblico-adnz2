@@ -19,7 +19,7 @@ export default function AtlasMap({selectedIds}:{selectedIds:string[]}){
     const selected=selectedIds.includes(city.slug);
     const marker=new maplibregl.Marker({color:selected?"#d6a84a":"#94a3b8"})
      .setLngLat([city.lng,city.lat])
-     .setPopup(new maplibregl.Popup({offset:18,maxWidth:"310px"}).setHTML('<div style="min-width:230px;padding:4px 2px"><strong style="font-size:17px">'+city.name+'</strong><div style="margin-top:5px;color:#64748b">'+city.region+" · "+city.modern+'</div><p style="margin:10px 0 0;line-height:1.45">'+city.description+"</p></div>")).addTo(map);
+     .setPopup(new maplibregl.Popup({offset:18,maxWidth:"310px"}).setHTML('<div style="min-width:250px;padding:4px 2px"><strong style="font-size:17px">'+city.name+'</strong><div style="margin-top:5px;color:#64748b">'+city.region+" · "+city.modern+'</div><p style="margin:10px 0 0;line-height:1.45">'+city.description+'</p>'+(city.archaeology?'<div style="margin-top:10px;padding-top:9px;border-top:1px solid #e2e8f0"><strong>Arqueologia</strong><p style="margin:4px 0;line-height:1.4">'+city.archaeology+'</p></div>':'')+(city.biblicalReferences?.length?'<div style="margin-top:8px;color:#64748b;font-size:12px">Referências: '+city.biblicalReferences.join(", ")+'</div>':'')+'</div>')).addTo(map);
     markersRef.current[city.slug]=marker;
    });
    map.addSource("atlas-route",{type:"geojson",data:{type:"FeatureCollection",features:[]}});
