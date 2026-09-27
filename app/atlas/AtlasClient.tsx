@@ -13,7 +13,7 @@ export default function AtlasClient(){
  const focus=(slug:string)=>window.dispatchEvent(new CustomEvent("atlas:focus",{detail:{slug}}));
  const chooseRoute=(id:string|null)=>{setRouteId(id);window.dispatchEvent(new CustomEvent("atlas:route",{detail:{routeId:id}}));};
  return <main className="relative h-screen overflow-hidden bg-[#07111f] text-white">
-  <AtlasMap selectedIds={lesson.places}/>
+  <AtlasMap selectedIds={lesson.places} places={places} routes={routes}/>
   <button onClick={()=>setOpen(!open)} className="absolute left-4 top-4 z-30 rounded-xl border border-white/10 bg-[#081322]/95 p-3 shadow-xl backdrop-blur lg:hidden" aria-label={open?"Fechar painel":"Abrir painel"}>{open?<X size={18}/>:<MapPinned size={18}/>}</button>
   <aside className={(open?"flex":"hidden")+" absolute left-4 top-4 z-20 max-h-[calc(100vh-2rem)] w-[min(400px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#081322]/95 shadow-2xl backdrop-blur lg:flex"}>
    <div className="border-b border-white/10 p-5">
