@@ -2,12 +2,12 @@
 
 import {useEffect,useRef} from "react";
 import maplibregl,{type Map as MapLibreMap,type Marker} from "maplibre-gl";
-import {places,routes} from "@/lib/atlas-data";
+import {places as defaultPlaces,routes as defaultRoutes,type AtlasPlace,type AtlasRoute} from "@/lib/atlas-data";
 
 type FocusDetail={slug:string};
 type RouteDetail={routeId:string|null};
 
-export default function AtlasMap({selectedIds}:{selectedIds:string[]}){
+export default function AtlasMap({selectedIds,places=defaultPlaces,routes=defaultRoutes}:{selectedIds:string[];places?:AtlasPlace[];routes?:AtlasRoute[]}){
  const ref=useRef<HTMLDivElement>(null); const mapRef=useRef<MapLibreMap|null>(null); const markersRef=useRef<Record<string,Marker>>({});
  useEffect(()=>{
   if(!ref.current||mapRef.current)return;
