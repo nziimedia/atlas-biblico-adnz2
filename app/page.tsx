@@ -1,31 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Landmark, MapPinned } from "lucide-react";
+import {ArrowRight,BookOpen,MapPinned,Route} from "lucide-react";
 
-export default function Home() {
-  const cards = [
-    [BookOpen, "Lições EBD", "Selecione uma lição e destaque os lugares estudados."],
-    [MapPinned, "Mapa interativo", "Zoom, navegação, marcadores e contexto de cada cidade."],
-    [Landmark, "Arqueologia", "Camada dedicada a sítios e referências arqueológicas."]
-  ];
-  return (
-    <main className="min-h-screen bg-[#07111f] text-white">
-      <header className="border-b border-white/10 bg-[#07111f]/90">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <div><div className="text-sm font-semibold tracking-[.2em] text-amber-400">AD NAZARÉ II</div><div className="font-serif text-lg">Atlas Bíblico</div></div>
-          <Link href="/atlas" className="rounded-xl bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-950">Abrir Atlas</Link>
-        </div>
-      </header>
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-[1.2fr_.8fr] md:items-center">
-        <div>
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm text-amber-200"><MapPinned size={16}/> Geografia · Arqueologia · EBD</div>
-          <h1 className="max-w-3xl font-serif text-5xl leading-[1.02] md:text-7xl">A Bíblia no mapa.<br/><span className="text-amber-400">A história em contexto.</span></h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">Um atlas interativo para visualizar cidades, regiões, rotas missionárias e o contexto histórico das lições da Escola Bíblica Dominical.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><Link href="/atlas" className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3 font-semibold text-slate-950">Explorar o mapa <ArrowRight size={18}/></Link><Link href="/atlas?lesson=13" className="rounded-xl border border-white/15 px-6 py-3 text-slate-200">Ver Lição 13</Link></div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
-          {cards.map(([Icon,title,desc]) => { const I=Icon as typeof BookOpen; return <div key={title as string} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><I className="text-amber-400"/><h2 className="mt-4 font-semibold">{title as string}</h2><p className="mt-2 text-sm leading-6 text-slate-400">{desc as string}</p></div> })}
-        </div>
-      </section>
-    </main>
-  );
+export default function Home(){
+ return <main className="min-h-screen bg-[#07111f] text-white"><section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16"><div className="max-w-3xl"><div className="mb-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[.22em] text-amber-400"><MapPinned size={18}/> AD Nazaré II · EBD</div><h1 className="font-serif text-5xl leading-tight md:text-7xl">Atlas Bíblico</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">Geografia bíblica, cidades, regiões e rotas missionárias em uma experiência interativa criada para estudo e projeção em sala de aula.</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/atlas" className="inline-flex items-center gap-2 rounded-2xl bg-amber-500 px-5 py-3 font-semibold text-slate-950">Abrir Atlas <ArrowRight size={18}/></Link><Link href="/importar" className="inline-flex items-center gap-2 rounded-2xl border border-white/10 px-5 py-3 font-semibold hover:bg-white/5"><BookOpen size={18}/> Importar lição</Link></div></div><div className="mt-16 grid gap-4 md:grid-cols-3"><div className="rounded-3xl border border-white/10 bg-white/[.03] p-6"><MapPinned className="text-amber-400"/><h2 className="mt-5 text-lg font-semibold">Mapa interativo</h2><p className="mt-2 text-sm leading-6 text-slate-500">Zoom, busca e foco em cidades bíblicas.</p></div><div className="rounded-3xl border border-white/10 bg-white/[.03] p-6"><Route className="text-amber-400"/><h2 className="mt-5 text-lg font-semibold">Rotas didáticas</h2><p className="mt-2 text-sm leading-6 text-slate-500">Apresente sequências missionárias com clareza.</p></div><div className="rounded-3xl border border-white/10 bg-white/[.03] p-6"><BookOpen className="text-amber-400"/><h2 className="mt-5 text-lg font-semibold">Lições EBD</h2><p className="mt-2 text-sm leading-6 text-slate-500">Importação inicial por URL para acelerar a preparação.</p></div></div></section></main>;
 }
